@@ -1,0 +1,39 @@
+	@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600&family=Open+Sans:wght@700&display=swap");
+
+				body {
+		background: #1e2830;
+	}
+
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	time {
+		color: #b8d1e5;
+	}
+
+	h1,
+	h2,
+	h3 {
+		font-family: "Open Sans", sans-serif;
+		font-weight: bold;
+	}
+
+	h4,
+	h5,
+	h6 {
+		font-family: "Fira Sans", sans-serif;
+		font-weight: semibold;
+	}
+
+	p {
+		font-family: "Fira Sans", sans-serif;
+		font-weight: semibold;
+		margin-bottom: 2rem !important;
+		font-size: 1.25rem;
+		line-height: 2rem;
+	}
+

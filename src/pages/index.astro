@@ -1,0 +1,45 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection, type CollectionEntry } from "astro:content";
+import Header from "../components/Header.astro";
+import LatestArticles from "../components/LatestArticles.astro";
+
+type Post = CollectionEntry<"blog">;
+
+const posts: Post[] = await getCollection("blog");
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+
+		<main class="max-w-4xl mx-auto">
+			<LatestArticles />
+			<section class="my-3">
+				<h3 class="font-bold text-3xl my-3">Todos los artículos</h3>
+				<ul>
+					{
+						posts.map((post) => {
+							return (
+								<li>
+									<ArticleCard
+										title={post.data.title}
+										slug={post.slug}
+										pubDate={new Date(post.data.pubDate)}
+										description={post.data.description}
+									/>
+								</li>
+							);
+						})
+					}
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>

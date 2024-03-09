@@ -1,0 +1,27 @@
+---
+import { type CollectionEntry } from "astro:content";
+type Blog = CollectionEntry<"blog">["data"];
+interface Props extends Blog {
+	slug: string;
+}
+
+const { description, title, pubDate, slug } = Astro.props as Props;
+const year = pubDate.getFullYear();
+const month = pubDate.getDate();
+const day = pubDate.getDay();
+---
+
+<a
+	href={`/blog/${slug}`}
+	class="p-4 my-2 rounded-md transition-shadow block hover:cursor-pointer hover:bg-accent-hover"
+>
+	<div class="flex justify-between">
+		<p class="text-2xl font-bold my-2">{title}</p>
+		<time class="color-light" datetime={`${year}-${month}-${day}`}
+			>{`${day}/${month}/${year}`}</time
+		>
+	</div>
+	<p>
+		{description}
+	</p>
+</a>
