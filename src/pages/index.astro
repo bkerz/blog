@@ -16,10 +16,10 @@ const posts: Post[] = await getCollection("blog");
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
+	<body class="container lg:max-w-4xl mx-auto">
 		<Header />
 
-		<main class="max-w-4xl mx-auto">
+		<main >
 			<LatestArticles />
 			<section class="my-3">
 				<h3 class="font-bold text-3xl my-3">Todos los artículos</h3>

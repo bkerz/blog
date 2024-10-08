@@ -1,12 +1,15 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const baseUrl = import.meta.env.MODE === 'development' ? 'http://localhost:4321' : 'https://kersan.dev';
+
 ---
 
-<header class="text-center">
-	<h1 class="text-5xl my-3 font-bold">
+<header class="flex justify-between items-end my-10 ">
+	<a href="/" class="text-5xl font-bold link-light hover:underline">
 		{SITE_TITLE}
-	</h1>
-	<h4 class="text-xl my-2">
-		{SITE_DESCRIPTION}
-	</h4>
+	</a>
+	<a href="/about" class="text-xl link-light hover:underline">
+		About
+	</a>
 </header>
