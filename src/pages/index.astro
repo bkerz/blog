@@ -4,7 +4,6 @@ import ArticleCard from "../components/ArticleCard.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection, type CollectionEntry } from "astro:content";
 import Header from "../components/Header.astro";
-import LatestArticles from "../components/LatestArticles.astro";
 
 type Post = CollectionEntry<"blog">;
 
@@ -20,7 +19,6 @@ const posts: Post[] = await getCollection("blog");
 		<Header />
 
 		<main >
-			<LatestArticles />
 			<section class="my-3">
 				<h3 class="font-bold text-3xl my-3">Todos los artículos</h3>
 				<ul>
