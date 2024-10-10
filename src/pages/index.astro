@@ -29,7 +29,7 @@ const posts: Post[] = await getCollection("blog");
 									<ArticleCard
 										title={post.data.title}
 										slug={post.slug}
-										pubDate={new Date(post.data.pubDate)}
+										pubDate={post.data.pubDate ? new Date(post.data.pubDate) : undefined}
 										description={post.data.description}
 									/>
 								</li>

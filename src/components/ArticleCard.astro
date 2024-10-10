@@ -5,10 +5,10 @@ interface Props extends Blog {
 	slug: string;
 }
 
-const { description, title, pubDate, slug } = Astro.props as Props;
-const year = pubDate.getFullYear();
-const month = pubDate.getDate();
-const day = pubDate.getDay();
+const { description = "", title = "", pubDate, slug } = Astro.props as Props;
+const year = pubDate ? pubDate.getFullYear() : undefined;
+const month = pubDate ? pubDate.getDate() : undefined;
+const day = pubDate ? pubDate.getDay() : undefined;
 ---
 
 <a
@@ -16,10 +16,16 @@ const day = pubDate.getDay();
 	class="p-4 my-2 rounded-md transition-shadow block hover:cursor-pointer hover:bg-accent-hover"
 >
 	<div class="flex justify-between">
+		{title && 
 		<p class="text-2xl font-bold my-2">{title}</p>
+		}
+
+		{pubDate && 
 		<time class="color-light" datetime={`${year}-${month}-${day}`}
 			>{`${day}/${month}/${year}`}</time
 		>
+
+		}
 	</div>
 	<p>
 		{description}
